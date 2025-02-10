@@ -23,3 +23,5 @@ rootProject.name = "Marvel"
 include(":app")
 include(":core")
 include(":navigation")
+include(":data")
+include(":domain")
