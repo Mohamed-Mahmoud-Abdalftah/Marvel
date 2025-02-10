@@ -1,22 +1,18 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.kotlinCompose)
-    id(libs.plugins.daggerHilt.get().toString())
     id("kotlin-kapt")
+
+
 }
 
 android {
-    namespace = "banquemisr.challenge05.movie"
+    namespace = "banquemisr.challenge05.core"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "banquemisr.challenge05.movie"
         minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,40 +41,23 @@ android {
 
 }
 
-
 dependencies {
 
-//    implementation(project(":navigation"))
-    implementation(project(":core"))
-//    implementation(project(":movie"))
-//    implementation(project(":data"))
-//    implementation(project(":domain"))
-    // just home Compose Screen
-
-
+    implementation(libs.retrofit.core)
 
     //region D.I Dependencies
     implementation(libs.hilt.core)
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     //endregion
 
-    //region Compose Dependencies
-    implementation(libs.compose.activity)
+    //region Presentation Dependencies
     implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
+    implementation(libs.compose.hilt.navigation)
     implementation(libs.compose.ui.graphics)
-    implementation(libs.ui.tooling.preview)
+    implementation(libs.compose.navigation)
     implementation(libs.compose.ui.material)
-    androidTestImplementation(platform(libs.compose.bom))
-    //endregion
-
-    //region Core Dependencies
-    implementation(libs.appcompat)
-    implementation(libs.android.core)
-    //endregion
-
-    implementation(libs.lifecycle.ktx)
-
-
+    implementation(libs.compose.activity)
+    implementation(libs.coil)
     implementation("androidx.compose.runtime:runtime:1.7.6")
+    //endregion
 }
