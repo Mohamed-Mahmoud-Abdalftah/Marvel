@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "banquemisr.challenge05.navigation"
+    namespace = "com.marvel.navigation"
     compileSdk = 35
 
     defaultConfig {

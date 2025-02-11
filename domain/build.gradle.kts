@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "banquemisr.challenge05.domain"
+    namespace = "com.marvel.domain"
     compileSdk = 35
 
     defaultConfig {

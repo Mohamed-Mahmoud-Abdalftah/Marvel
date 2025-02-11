@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "banquemisr.challenge05.movie"
+    namespace = "com.app.marvel"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "banquemisr.challenge05.movie"
+        applicationId = "com.app.marvel"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -48,11 +48,11 @@ android {
 
 dependencies {
 
-//    implementation(project(":navigation"))
+    implementation(project(":navigation"))
     implementation(project(":core"))
-//    implementation(project(":movie"))
-//    implementation(project(":data"))
-//    implementation(project(":domain"))
+    implementation(project(":character"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
     // just home Compose Screen
 
 

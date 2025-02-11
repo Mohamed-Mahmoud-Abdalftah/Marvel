@@ -42,7 +42,7 @@ suspend fun <T> handleCall(block: suspend () -> Response<T>): T {
     return try {
         block().handleResponse()
     } catch (e: GenericException) {
-        // Catching exception from banquemisr.challenge05.core.utils.extensions.handleResponse and rethrowing with the same message
+        // Catching exception from core.utils.extensions.handleResponse and rethrowing with the same message
         throw GenericException(
             message = e.message ?: "An error occurred while processing the request.",
             hasUserFriendlyMessage = e.hasUserFriendlyMessage

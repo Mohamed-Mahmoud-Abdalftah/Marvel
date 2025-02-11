@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "banquemisr.challenge05.data"
+    namespace = "com.marvel.data"
     compileSdk = 35
 
     defaultConfig {

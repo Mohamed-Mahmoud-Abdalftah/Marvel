@@ -8,20 +8,31 @@ plugins {
 }
 
 android {
-    namespace = "banquemisr.challenge05.core"
+    namespace = "com.marvel.core"
     compileSdk = 35
-
+    buildFeatures {
+        buildConfig = true
+    }
     defaultConfig {
         minSdk = 24
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        defaultConfig {
+            buildConfigField(
+                "String", "MARVEL_PUBLIC_KEY",
+                "\"${project.findProperty("MARVEL_PUBLIC_KEY") ?: ""}\""
+            )
+            buildConfigField(
+                "String", "MARVEL_PRIVATE_KEY",
+                "\"${project.findProperty("MARVEL_PRIVATE_KEY") ?: ""}\""
+            )
+        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
