@@ -27,7 +27,7 @@ fun CharactersProducts(uiState: DetailUIState) {
 
     Column {
         sections.forEach { (title, products, isLoading) ->
-            if (products.isEmpty()) return@forEach
+            if (products.isEmpty() && !isLoading) return@forEach
 
             CharacterProductsSection(
                 title = title,
