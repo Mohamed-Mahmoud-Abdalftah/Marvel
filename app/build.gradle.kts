@@ -59,7 +59,7 @@ dependencies {
 
     //region D.I Dependencies
     implementation(libs.hilt.core)
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    kapt(libs.hilt.compiler)
     //endregion
 
     //region Compose Dependencies
@@ -80,5 +80,5 @@ dependencies {
     implementation(libs.lifecycle.ktx)
 
 
-    implementation("androidx.compose.runtime:runtime:1.7.6")
+    implementation(libs.runtime)
 }

@@ -5,8 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.marvel.navigation.graph.DetailScreens
-import com.marvel.navigation.graph.detailGraph
+import com.marvel.domain.models.CharacterEntity
 import com.marvel.navigation.screens.Detail
 import kotlinx.coroutines.flow.collectLatest
 
@@ -14,8 +13,7 @@ import kotlinx.coroutines.flow.collectLatest
 fun AppNavigation(
     navigator: Navigator,
     homeScreen: @Composable () -> Unit,
-    detailScreen: @Composable (Int) -> Unit,
-    detailScreenWithGraph: DetailScreens
+    detailScreen: @Composable (CharacterEntity) -> Unit
 ) {
     val navController = rememberNavController()
 
@@ -27,20 +25,18 @@ fun AppNavigation(
                     route = action.destination,
                     builder = action.navOptions
                 )
-             }
+            }
         }
     }
 
     NavHost(navController, startDestination = Destination.home.route) {
-        detailGraph(detailScreenWithGraph)
         composable(Destination.home.route) {
             homeScreen()
         }
 
-        composable(Destination.detail.route, Destination.detail.arguments) {
-            val id = Detail.objectParser(it)
-            detailScreen(id)
+        composable(Destination.detail.route, Destination.detail.arguments) { entry ->
+            val character = Detail.objectParser(entry)
+            detailScreen(character)
         }
     }
-
 }

@@ -136,34 +136,6 @@ private fun CancelButton(onClick: () -> Unit) {
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun CollapsedToolbar(navController: NavHostController? = null) {
-    TopAppBar(
-        colors = toolbarColors(containerColor = Color.Transparent),
-        title = {},
-        navigationIcon = {
-            IconButton(onClick = { navController?.popBackStack() }) {
-                BackIcon()
-            }
-        }
-    )
-}
-
-@Composable
-private fun BackIcon() {
-    Icon(
-        modifier = Modifier.offset(x = 0.1.dp, y = (-0.2).dp),
-        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-        tint = Color.Black.copy(alpha = 0.4f),
-        contentDescription = ""
-    )
-    Icon(
-        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-        tint = Color.White,
-        contentDescription = ""
-    )
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

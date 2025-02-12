@@ -16,6 +16,7 @@ class Navigator @Inject constructor() : NavigationService {
         extraBufferCapacity = 10
     )
     val actions: Flow<Action> = _actions.asSharedFlow()
+
     override fun navigateTo(
         destination: DestinationRoute,
         navOptions: NavOptionsBuilder.() -> Unit
@@ -37,5 +38,4 @@ class Navigator @Inject constructor() : NavigationService {
 
         data object Back : Action()
     }
-
 }

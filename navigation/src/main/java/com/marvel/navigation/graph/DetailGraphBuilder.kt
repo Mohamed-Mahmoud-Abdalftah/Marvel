@@ -5,11 +5,12 @@ import androidx.compose.runtime.Immutable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.marvel.domain.models.CharacterEntity
 import com.marvel.navigation.screens.Detail
 
 @Immutable
 data class DetailScreens(
-    val detailMain: @Composable (Int) -> Unit,
+    val detailMain: @Composable (CharacterEntity) -> Unit,
 )
 
 internal fun NavGraphBuilder.detailGraph(

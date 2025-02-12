@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.kotlinCompose)
     id("kotlin-kapt")
+    id ("org.jetbrains.kotlin.plugin.serialization")
 
 }
 
@@ -46,6 +47,7 @@ dependencies {
     implementation(libs.retrofit.gson.converter)
     implementation(libs.runtime)
     implementation (libs.paging.runtime.ktx)
+    implementation(libs.kotlinx.serialization.json)
 
     //endregion
 

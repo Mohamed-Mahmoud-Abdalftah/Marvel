@@ -3,7 +3,7 @@ package com.marvel.data.model
 import com.google.gson.annotations.SerializedName
 
 data class CharactersResponse(
-    @SerializedName("code") val code: Long? = null,
+    @SerializedName("code") val code: Int? = null,
     @SerializedName("status") val status: String? = null,
     @SerializedName("copyright") val copyright: String? = null,
     @SerializedName("attributionText") val attributionText: String? = null,
@@ -12,15 +12,15 @@ data class CharactersResponse(
 )
 
 data class Data(
-    @SerializedName("offset") val offset: Long? = null,
-    @SerializedName("limit") val limit: Long? = null,
-    @SerializedName("total") val total: Long? = null,
-    @SerializedName("count") val count: Long? = null,
+    @SerializedName("offset") val offset: Int? = null,
+    @SerializedName("limit") val limit: Int? = null,
+    @SerializedName("total") val total: Int? = null,
+    @SerializedName("count") val count: Int? = null,
     @SerializedName("results") val characters: List<CharacterResponse>? = null
 )
 
 data class CharacterResponse(
-    @SerializedName("id") val id: Long? = null,
+    @SerializedName("id") val id: Int? = null,
     @SerializedName("name") val name: String? = null,
     @SerializedName("title") val title: String? = null,
     @SerializedName("description") val description: String? = null,

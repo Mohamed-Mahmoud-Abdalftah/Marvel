@@ -23,12 +23,12 @@ import com.marvel.core.components.CoilImageComponent
 import com.marvel.domain.models.CharacterEntity
 
 @Composable
-fun CharacterCard(characterItem: CharacterEntity, onItemClick: (Long) -> Unit) {
+fun CharacterCard(characterItem: CharacterEntity, onItemClick: (CharacterEntity) -> Unit) {
     Box(modifier = Modifier
         .fillMaxWidth()
         .height(180.dp)
         .clickable {
-            onItemClick(characterItem.id)
+            onItemClick(characterItem)
         }) {
         CharacterImage(characterItem.thumbnail)
         TitleText(characterItem.name)

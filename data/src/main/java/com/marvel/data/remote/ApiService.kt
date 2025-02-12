@@ -14,8 +14,8 @@ interface ApiService {
     ): Response<CharactersResponse>
 
     @GET("characters/{characterId}/{type}")
-    suspend fun getCharacterDetails(
-        @Path("characterId") characterId: Long,
+    suspend fun getCharacterByType(
+        @Path("characterId") characterId: Int,
         @Path("type") type: String,
     ): Response<CharactersResponse>
 

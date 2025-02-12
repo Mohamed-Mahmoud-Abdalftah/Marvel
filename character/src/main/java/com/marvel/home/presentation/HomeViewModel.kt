@@ -17,6 +17,11 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
+
 import javax.inject.Inject
 
 @HiltViewModel
@@ -34,7 +39,7 @@ class HomeViewModel @Inject constructor(
             }
 
             is CharacterUIEvent.OnCharacterClicked -> {
-                onMovieClicked(event.id)
+                onMovieClicked(event.characterEntity)
             }
 
             is CharacterUIEvent.Dismiss -> {
@@ -67,13 +72,16 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    // Route with Detail Graph
-    private fun onMovieClicked(id: Long) {
-        navigator.navigateTo("detail/$id") {
+    private fun onMovieClicked(character: CharacterEntity) {
+        val json = Json.encodeToString(character)
+        val encodedJson = URLEncoder.encode(json, StandardCharsets.UTF_8.toString())
+
+        navigator.navigateTo("detail/$encodedJson") {
             launchSingleTop = true
             restoreState = true
         }
     }
+
 
 
     private fun handleBack() {

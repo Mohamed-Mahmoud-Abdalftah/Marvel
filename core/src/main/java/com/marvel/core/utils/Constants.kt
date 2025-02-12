@@ -7,7 +7,6 @@ object Constants {
 //    const val PUBLIC_KEY ="9f482c2ec60bec6b86dc3b6a7aa7a9f8"
 //    const val PRIVATE_KEY ="9f7c6c5abaebdde6e1d09c0ad00142f8060c41ef"
     const val MAX_PAGE_SIZE =20
-    const val IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
 
 
 

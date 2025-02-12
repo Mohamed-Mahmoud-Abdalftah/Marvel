@@ -29,7 +29,4 @@ class CharactersRepositoryImpl @Inject constructor(
         ).flow
             .flowOn(dispatcher) // Ensure dispatcher is used
     }
-
-
-
 }

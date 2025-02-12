@@ -1,6 +1,8 @@
 package com.marvel.data.di
 
+import com.marvel.data.repository.CharacterByTypeRepositoryImpl
 import com.marvel.data.repository.CharactersRepositoryImpl
+import com.marvel.domain.repositories.CharacterByTypeRepository
 import com.marvel.domain.repositories.CharactersRepository
 import dagger.Binds
 import dagger.Module
@@ -17,6 +19,12 @@ abstract class RepositoryModule {
     abstract fun bindCharactersRepository(
         charactersRepositoryImpl: CharactersRepositoryImpl
     ): CharactersRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindCharacterByTypeRepository(
+        characterByTypeRepositoryImpl: CharacterByTypeRepositoryImpl
+    ): CharacterByTypeRepository
 
 
 
